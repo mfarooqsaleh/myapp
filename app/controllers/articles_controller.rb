@@ -26,6 +26,7 @@ end
 def show
 end
 def destroy
+	@article.destroy
 flash[:notice]="article is deleted"
 redirect_to articles_path
 end
