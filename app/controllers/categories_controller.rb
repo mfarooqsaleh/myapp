@@ -31,6 +31,12 @@ def show
 	@category = Category.find(params[:id])
 	@category_articles = @category.articles.paginate(page: params[:page], per_page: 5)
 end
+def destroy
+	@category=Category.find(params[:id])
+	@category.destroy
+	flash[:danger]= "Category and all realted articles have been deleted"
+	redirect_to categories_path
+end
 private
 def category_params
 	params.require(:category).permit(:name)
